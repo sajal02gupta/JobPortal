@@ -11,4 +11,8 @@ public interface JobDAL {
 	
 	public List<JobInfo> viewJob();
 	
+	public JobInfo findById(String id);
+	
+	public JobInfo update(JobInfo job, String id);
+	
 }

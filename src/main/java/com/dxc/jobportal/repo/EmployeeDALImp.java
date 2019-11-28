@@ -8,44 +8,45 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Repository;
 
-import com.dxc.jobportal.model.JobInfo;
-
+import com.dxc.jobportal.model.Employee;
 
 @Repository
-public class JobDALImp implements JobDAL{
+public class EmployeeDALImp implements EmployeeDAL{
 	
 	@Autowired
 	private MongoTemplate mongo;
 	
 	@Override
-	public JobInfo create(JobInfo job) {
+	public Employee create(Employee emp) {
 		// TODO Auto-generated method stub
-		return mongo.save(job);
+		return mongo.save(emp);
 	}
 
 	@Override
-	public boolean delete(JobInfo job) {
+	public boolean delete(Employee emp) {
 		// TODO Auto-generated method stub
-		return mongo.remove(job).wasAcknowledged();
+		return mongo.remove(emp).wasAcknowledged();
 	}
 
 	@Override
-	public List<JobInfo> viewJob() {
+	public List<Employee> findAll() {
 		// TODO Auto-generated method stub
-		return mongo.findAll(JobInfo.class);
+		return mongo.findAll(Employee.class);
 	}
 
 	@Override
-	public JobInfo findById(String id) {
+	public Employee findById(String id) {
 		// TODO Auto-generated method stub
-		return mongo.findById(id, JobInfo.class);
+		return mongo.findById(id, Employee.class);
 	}
+
+	@Override
+	public Employee findone(String username) {
+		// TODO Auto-generated method stub
+		Employee e =  mongo.findOne(new Query(Criteria.where("username").is(username)), Employee.class);
+		System.err.println(e);
+		return e;
+	}
+
 	
-	@Override
-	public JobInfo update(JobInfo job, String id) {
-		// TODO Auto-generated method stub
-		Query query= new Query();
-		query.addCriteria(Criteria.where("id").is(id));
-		return mongo.save(job);
-	}
 }
