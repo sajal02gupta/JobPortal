@@ -14,4 +14,6 @@ public interface EmployeeDAL {
 	
 	public List<Employee> findAll();
 	public Employee findById(String id);
+	
+	Employee update(String id, Employee emp);
 }

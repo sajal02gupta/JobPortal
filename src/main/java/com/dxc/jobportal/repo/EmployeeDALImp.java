@@ -47,6 +47,14 @@ public class EmployeeDALImp implements EmployeeDAL{
 		System.err.println(e);
 		return e;
 	}
+	
+	@Override
+	public Employee update(String id, Employee emp) {
+		// TODO Auto-generated method stub
+		Query query= new Query();
+		query.addCriteria(Criteria.where("empId").is(id));
+		return mongo.save(emp);
+	}
 
 	
 }

@@ -19,7 +19,7 @@ public class JobInfo {
 	private Date postingDate = new Date();
 	private String jobSummary;
 	private String jobDescription;
-	private List<String> jobQualification;
+	private String jobQualification;
 	private String workEnvironment;
 	private String recruiter;
 	private String similarJobs;
@@ -31,8 +31,8 @@ public class JobInfo {
 	}
 
 	public JobInfo(String jobId, String jobTitle, String jobCategory, String primaryLocation, String additionalLocation,
-			String schedule, String jobType, String jobSummary, String jobDescription,
-			List<String> jobQualification, String workEnvironment, String recruiter, String similarJobs,
+			String schedule, String jobType, Date postingDate, String jobSummary, String jobDescription,
+			String jobQualification, String workEnvironment, String recruiter, String similarJobs,
 			String yearsofExperience) {
 		super();
 		this.jobId = jobId;
@@ -42,21 +42,13 @@ public class JobInfo {
 		this.additionalLocation = additionalLocation;
 		this.schedule = schedule;
 		this.jobType = jobType;
+		this.postingDate = postingDate;
 		this.jobSummary = jobSummary;
 		this.jobDescription = jobDescription;
 		this.jobQualification = jobQualification;
 		this.workEnvironment = workEnvironment;
 		this.recruiter = recruiter;
 		this.similarJobs = similarJobs;
-		this.yearsofExperience = yearsofExperience;
-	}
-	
-
-	public String getYearsofExperience() {
-		return yearsofExperience;
-	}
-
-	public void setYearsofExperience(String yearsofExperience) {
 		this.yearsofExperience = yearsofExperience;
 	}
 
@@ -140,11 +132,11 @@ public class JobInfo {
 		this.jobDescription = jobDescription;
 	}
 
-	public List<String> getJobQualification() {
+	public String getJobQualification() {
 		return jobQualification;
 	}
 
-	public void setJobQualification(List<String> jobQualification) {
+	public void setJobQualification(String jobQualification) {
 		this.jobQualification = jobQualification;
 	}
 
@@ -156,19 +148,13 @@ public class JobInfo {
 		this.workEnvironment = workEnvironment;
 	}
 
-
-
 	public String getRecruiter() {
 		return recruiter;
 	}
 
-
-
 	public void setRecruiter(String recruiter) {
 		this.recruiter = recruiter;
 	}
-
-
 
 	public String getSimilarJobs() {
 		return similarJobs;
@@ -177,5 +163,15 @@ public class JobInfo {
 	public void setSimilarJobs(String similarJobs) {
 		this.similarJobs = similarJobs;
 	}
+
+	public String getYearsofExperience() {
+		return yearsofExperience;
+	}
+
+	public void setYearsofExperience(String yearsofExperience) {
+		this.yearsofExperience = yearsofExperience;
+	}
 	
+	
+
 }
